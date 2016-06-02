@@ -12,7 +12,6 @@ if($conn->connect_error){
 }
 else{
     $conn->set_charset("utf8");
-    echo "Polaczenie udane <br>";
 }
 //Niszczymy polaczenie
 //$conn->close();
