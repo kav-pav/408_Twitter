@@ -21,7 +21,7 @@ require_once './src/connection.php';
             $userName = $userInfo['fullName'];
             echo"<h1>Tweet by $userName</h1>";
             echo"<div>{$thisTweet['text']}</div>";
-            $tweetComments= Comment::loadAllComments($conn, $tweetId);
+            $tweetComments= Tweet::loadAllComments($conn, $tweetId);
             echo "Comments:";
             echo "<dl>";
             for($i = 0; $i < count($tweetComments);$i++ ){

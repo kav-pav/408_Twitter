@@ -144,7 +144,7 @@ class User {
     
     public function loadFromDB(mysqli $conn,$id){
         $sql = "SELECT * FROM User WHERE id = $id";
-        $result = $conn->query($id);
+        $result = $conn->query($sql);
         if($result->num_rows == 1){
             $rowUser = $result->fetch_assoc();
             $this->id = $rowUser['id'];
@@ -171,10 +171,10 @@ class User {
         }
         else{
             $sql = "UPDATE User SET 
-                email='{$this->emaail}, 
+                email='{$this->email}', 
                 fullName = '{$this->fullName}', 
                 active = {$this->active},
-                password = {$this->password}
+                password = '{$this->password}'
                 WHERE id = {$this->id}";
                 
             if($conn->query($sql)){
