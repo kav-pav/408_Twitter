@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "coderslab";
+$password = "";
 $baseName = "Twitter";
 //Tworzenie nowego polaczenia
 $conn = new mysqli($servername, $username, $password, $baseName);
