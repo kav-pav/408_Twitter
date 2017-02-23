@@ -77,7 +77,7 @@ require_once('./src/Tweet.php');
 
                                         }
                                         else{
-                                        echo"New password and Retype new password are diffrent";
+                                            echo"New password and Retype new password are diffrent";
                                         }
                                     }
                                     else{
@@ -152,5 +152,6 @@ require_once('./src/Tweet.php');
                 <input type="submit" name="change" value="changePassword">
             </fieldset>
         </form>
+        <a href="index.php">Index</a>    
     </body>
 </html>

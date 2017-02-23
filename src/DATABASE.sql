@@ -1,10 +1,47 @@
 
 
 CREATE TABLE User (
-    id INT AUTO_INCREMENT NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    fullName VARCHAR(100) NOT NULL,
-    active TINYINT(1) DEFAULT 1,
-    PRIMARY KEY(id)
-)
+	id INT AUTO_INCREMENT NOT NULL,
+	email VARCHAR(100) UNIQUE NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	fullName VARCHAR(100) NOT NULL,
+	active TINYINT(1) DEFAULT 1,
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE Tweet(
+	id INT AUTO_INCREMENT NOT NULL,
+	id_user INT NOT NULL,
+	text VARCHAR(255) NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(id_user)
+	REFERENCES User(id)
+);
+
+CREATE TABLE Comment(
+	id INT  AUTO_INCREMENT NOT NULL,
+	tweet_id INT NOT NULL,
+	user_id INT NOT NULL,
+	creationDate DATE NOT NULL,
+	text VARCHAR(255) NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(user_id)
+	REFERENCES User(id),
+	FOREIGN KEY(tweet_id)
+	REFERENCES Tweet(id)
+);
+
+CREATE TABLE Message(
+	id INT AUTO_INCREMENT NOT NULL,
+	author_id INT NOT NULL,
+	receiver_id NOT NULL,
+	title VARCHAR(100) NOT NULL,
+	text VARCHAR(255) NOT NULL,
+	status TINYINT(1) DEFAULT 1,
+	PRIMARY KEY(id),
+	FOREGIN KEY(author_id)
+	REFERENCES User(id),
+	FOREGIN KEY (receiver_id)
+	REFERENCES User(id),
+);
+	

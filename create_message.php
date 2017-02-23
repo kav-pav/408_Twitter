@@ -27,7 +27,6 @@ require_once './src/connection.php';
                     $newMessage->setReceiverId($receiverId);
                     $newMessage->setText($messageText);
                     $newMessage->setTitle($messageTitle);
-                    var_dump($newMessage);
                     $newMessage->saveMessageToDB($conn);
                 }
             }

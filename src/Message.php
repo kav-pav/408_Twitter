@@ -1,6 +1,18 @@
 <?php
 
 class Message{
+    
+    public static function getMessageById(mysqli $conn, $id) {
+        $sql = "SELECT * FROM Message WHERE id = '$id'";
+        $result = $conn->query($sql);
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+            return $row;
+        } else {
+            return false;
+        }
+    }
+    
     private $id;
     private $authorId;
     private $receiverId;
@@ -77,6 +89,7 @@ class Message{
             $this->title = $rowMessage['title'];
             $this->text = $rowMessage['text'];
             $this->status = $rowMessage['status'];
+            return $this;
         }
         return null;
     }

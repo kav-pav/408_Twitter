@@ -26,7 +26,7 @@ require_once './src/connection.php';
         echo"<ul>Inbox: <br>";
         for($i = 0; $i < count($userMessageReceiver); $i++){
             echo "<a href='user_page.php?id={$userMessageReceiver[$i][1]}'>{$userMessageReceiver[$i][2]}</a>"
-                . "<br><li>Title: {$userMessageReceiver[$i][3]}<br>Message: {$userMessageReceiver[$i][4]}</li>";
+                . "<br><li>Title: <a href='message_page.php?id={$userMessageReceiver[$i][0]}'>{$userMessageReceiver[$i][3]}</a><br>Message: {$userMessageReceiver[$i][4]}</li>";
         }
         echo"</ul>";
         ?>
